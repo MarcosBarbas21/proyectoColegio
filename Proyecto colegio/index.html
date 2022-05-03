@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <input type="text" id="polygon" placeholder="Holis"/>
+    <br/>
+    <input type="button" value="Genera una tabla" onclick="generateTable()">
+    <input value="Matricula" type="file" onChange="readMatricula(this)" />
+    <input value="AFIP" type="file" onChange="readAFIP(this)" />
+    <input value="Ver matriculados" type="button" id="matriculaButton" onClick="analyzeMatricula()"/>
+    <input value="Ver datos AFIP" type="button" id="afipButton" onClick="analyzeAfip()"/>
+    <input value="Generar" type="button" id="generateMapButton" onClick="generateApp()"/>
+    <script src="./app.js"></script>
+</body>
+</html>
