@@ -34,7 +34,7 @@ function Factura(id, numeroFactura, descripcion, monto, idMatriculado, fecha) {
   this.monto = monto;
   this.idMatriculado = idMatriculado;
   this.fecha = fecha;
-  this.retencion = null; // 0 < Factura Liquidada
+  this.retencion = null; // 0 <= Factura Liquidada
   this.estado = 1; // 0 : Factura anulada
   this.idLiquidacion = null;
 }
