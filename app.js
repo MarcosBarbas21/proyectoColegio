@@ -278,7 +278,10 @@ const cargarMultiplesMatriculados = () => {
             coincidente++;
           }
         }
-        if (!coincidente) matriculados[j].estado = 0;
+        if (coincidente && matriculados[j].estado == 0)
+          matriculados[j].estado = 1;
+        else if (!coincidente && matriculados[j].estado == 1)
+          matriculados[j].estado = 0;
       }
       for (let i = 3; i < dataArray.length; i += 4) {
         let coincidente = true;
@@ -302,6 +305,7 @@ const cargarMultiplesMatriculados = () => {
   } catch {
     alert("Verifique el archivo ingresado");
   }
+  console.log(matriculados);
 };
 
 const cargarMatriculado = () => {
@@ -1067,20 +1071,21 @@ const cargarRetenciones = () => {
   console.log(fecha);
   const regexAfip = /(;)/g;
   try {
+    alert("Se esta porcesando el archivo, espere por favor");
     const padronAfip = reg(regexAfip, txt, 1, 9);
     let flag = true;
-    alert("Se esta porcesando el archivo, espere por favor");
-    /*for (let i = 0; i < retenciones.length; i++) {
+    for (let i = 0; i < retenciones.length; i++) {
       let fechaRetencion = new Date(retenciones[i].fecha);
-      console.log((fechaRetencion.getMonth() + 1) ,fecha.getMonth(),
-      fechaRetencion.getFullYear(),fecha.getFullYear());
+      /*console.log((fechaRetencion.getMonth() + 1) ,fecha.getMonth(),
+      fechaRetencion.getFullYear(),fecha.getFullYear());*/
       if (
-        (fechaRetencion.getMonth()) == fecha.getMonth() &&
-        fechaRetencion.getFullYear() == fecha.getFullYear()
+        fechaRetencion.getMonth() == fechaHoy.getMonth() &&
+        fechaRetencion.getFullYear() == fechaHoy.getFullYear()
       ) {
         flag = false;
+        break;
       }
-    }*/
+    }
     if (flag) {
       let originalLength = retenciones.length;
       for (let i = 0; i < matriculados.length; i++) {
